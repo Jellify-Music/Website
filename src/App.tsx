@@ -3,17 +3,13 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import cloudflareLogo from "./assets/Cloudflare_Logo.svg";
 import "./App.css";
-import { TamaguiProvider, createTamagui } from "tamagui";
-import { defaultConfig } from "@tamagui/config/v4";
-
-const config = createTamagui(defaultConfig);
 
 function App() {
   const [count, setCount] = useState(0);
   const [name, setName] = useState("unknown");
 
   return (
-    <TamaguiProvider config={config}>
+    <>
       <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -59,7 +55,7 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-    </TamaguiProvider>
+    </>
   );
 }
 
