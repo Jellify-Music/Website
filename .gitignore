@@ -37,4 +37,8 @@ next-env.d.ts
 
 # open next
 .open-next
+
+# yarn 4.x
+.yarn/install-state.gz
+.yarn/unplugged/
 #
