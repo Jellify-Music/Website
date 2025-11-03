@@ -41,3 +41,6 @@ next-env.d.ts
 # yarn
 .yarn/
 .pnp.*
+
+# Tamagui
+.tamagui
