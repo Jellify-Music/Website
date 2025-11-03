@@ -1,19 +1,23 @@
 import type { NextConfig } from "next";
-import { defaultConfig } from "@tamagui/config/v4";
 import { withTamagui } from "@tamagui/next-plugin";
+import jellifyConfig from "./tamagui.config";
 
 const nextConfig: NextConfig = {
   /* config options here */
 };
 
+/**
+ * Use the Tamagui Next.JS plugin to enable
+ * SSR of themed components all while using
+ * the same tamagui config as the React Native
+ * app
+ * 
+ * @see https://tamagui.dev/docs/guides/next-js
+ */
 const tamaguiPlugin = withTamagui({
   config: './tamagui.config.ts',
   components: ['tamagui']
 })
-
-const jellifyConfig = {
-  ...defaultConfig
-}
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default {
