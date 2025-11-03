@@ -10,14 +10,15 @@
 		"deploy:version": "opennextjs-cloudflare build && wrangler versions upload",
 		"deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
 		"preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-
 		"cf-typegen": "wrangler types --env-interface CloudflareEnv ./cloudflare-env.d.ts"
 	},
 	"dependencies": {
 		"@opennextjs/cloudflare": "^1.3.0",
+		"init": "^0.1.2",
 		"next": "15.4.6",
 		"react": "19.1.0",
-		"react-dom": "19.1.0"
+		"react-dom": "19.1.0",
+		"shadcn": "^3.5.0"
 	},
 	"devDependencies": {
 		"@eslint/eslintrc": "^3",
