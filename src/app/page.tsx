@@ -14,11 +14,14 @@ export default function Home() {
           id="pic"
         />
         <p className="font-mono text-sm/6 text-center">
-          Under Construction...
+          Website Under Construction...
         </p>
         <p className="font-mono text-sm/6 text-center">
           App Launches Dec. 5, 2025!
         </p>
+        <a href="https://github.com/Jellify-Music/App" className="font-mono text-sm/6 text-center">
+          GitHub
+        </a>
       </main>
       
     </div>
