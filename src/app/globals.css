@@ -36,6 +36,16 @@ p {
   margin-top: 5px;
 }
 
+a {
+  margin-top: 10px;
+  display: inline-block;
+  margin-left: 90px;
+  text-align: center;
+  border: 2px solid white !important;
+  border-radius: 7px;
+  padding: 3px;
+}
+
 #pic {
-  margin-left: 19px;
+  margin-left: 31px;
 }
