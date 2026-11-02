@@ -8,12 +8,9 @@
 # testing
 /coverage
 
-# next.js
-/.next/
-/out/
-
 # production
 /build
+/dist
 
 # misc
 .DS_Store
@@ -28,16 +25,14 @@ yarn-error.log*
 .env*.local
 .env
 
-# vercel
-.vercel
-
 # typescript
 *.tsbuildinfo
-next-env.d.ts
 
-# open next
-.open-next
+# cloudflare
+.wrangler/
 
 # yarn
 .yarn/
 .pnp.*
+# tamagui
+.tamagui/
