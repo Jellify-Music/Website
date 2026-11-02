@@ -6,12 +6,12 @@ Built with [TanStack Start](https://tanstack.com/start) and [Tamagui](https://ta
 
 ## Getting Started
 
-Use [Bun](https://bun.sh) (the version in `package.json`'s `packageManager`) and the Node version in `.nvmrc`. Vite and Wrangler run on Node.
+Use the Node version in `.nvmrc` and npm:
 
 ```bash
 nvm use
-bun install
-bun run dev
+npm install
+npm run dev
 ```
 
 Then open [http://localhost:3000](http://localhost:3000).
@@ -32,11 +32,11 @@ Light and dark themes follow the visitor's system preference.
 
 | Command                  | Description                                                            |
 | ------------------------ | ---------------------------------------------------------------------- |
-| `bun run dev`            | Start the dev server (runs in the Workers runtime)                     |
-| `bun run build`          | Production build into `dist/`                                          |
-| `bun run preview`        | Build and serve the production build locally                           |
-| `bun run lint`           | Lint with ESLint                                                       |
-| `bun run typecheck`      | Typecheck with TypeScript                                              |
-| `bun run deploy`         | Build and deploy to Cloudflare Workers                                 |
-| `bun run deploy:version` | Build and upload a new Worker version without promoting it             |
-| `bun run cf-typegen`     | Regenerate `worker-configuration.d.ts` after changing `wrangler.jsonc` |
+| `npm run dev`            | Start the dev server (runs in the Workers runtime)                     |
+| `npm run build`          | Production build into `dist/`                                          |
+| `npm run preview`        | Build and serve the production build locally                           |
+| `npm run lint`           | Lint with ESLint                                                       |
+| `npm run typecheck`      | Typecheck with TypeScript                                              |
+| `npm run deploy`         | Build and deploy to Cloudflare Workers                                 |
+| `npm run deploy:version` | Build and upload a new Worker version without promoting it             |
+| `npm run cf-typegen`     | Regenerate `worker-configuration.d.ts` after changing `wrangler.jsonc` |

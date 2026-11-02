@@ -6,11 +6,11 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
-		"preview": "bun run build && vite preview",
+		"preview": "npm run build && vite preview",
 		"lint": "eslint .",
 		"typecheck": "tsc --noEmit",
-		"deploy:version": "bun run build && wrangler versions upload",
-		"deploy": "bun run build && wrangler deploy",
+		"deploy:version": "npm run build && wrangler versions upload",
+		"deploy": "npm run build && wrangler deploy",
 		"cf-typegen": "wrangler types"
 	},
 	"dependencies": {
@@ -38,5 +38,8 @@
 		"vite": "^8.3.5",
 		"wrangler": "^4.156.1"
 	},
-	"packageManager": "bun@1.4.2"
+	"allowScripts": {
+		"esbuild": true,
+		"workerd": true
+	}
 }

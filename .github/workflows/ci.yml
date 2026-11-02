@@ -10,15 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-      # Installs the version in package.json's packageManager
-      - uses: oven-sh/setup-bun@v2
-        with:
-          bun-version-file: package.json
-      # Vite and Wrangler run on Node
       - uses: actions/setup-node@v7
         with:
           node-version-file: .nvmrc
-      - run: bun install --frozen-lockfile
-      - run: bun run lint
-      - run: bun run typecheck
-      - run: bun run build
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run build
