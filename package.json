@@ -6,11 +6,11 @@
 	"scripts": {
 		"dev": "vite dev",
 		"build": "vite build",
-		"preview": "yarn build && vite preview",
+		"preview": "bun run build && vite preview",
 		"lint": "eslint .",
 		"typecheck": "tsc --noEmit",
-		"deploy:version": "yarn build && wrangler versions upload",
-		"deploy": "yarn build && wrangler deploy",
+		"deploy:version": "bun run build && wrangler versions upload",
+		"deploy": "bun run build && wrangler deploy",
 		"cf-typegen": "wrangler types"
 	},
 	"dependencies": {
@@ -38,5 +38,5 @@
 		"vite": "^8.3.5",
 		"wrangler": "^4.156.1"
 	},
-	"packageManager": "yarn@1.22.22"
+	"packageManager": "bun@1.4.2"
 }

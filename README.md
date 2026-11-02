@@ -6,12 +6,12 @@ Built with [TanStack Start](https://tanstack.com/start) and [Tamagui](https://ta
 
 ## Getting Started
 
-Use the Node version in `.nvmrc` and Yarn 1:
+Use [Bun](https://bun.sh) (the version in `package.json`'s `packageManager`) and the Node version in `.nvmrc`. Vite and Wrangler run on Node.
 
 ```bash
 nvm use
-yarn install
-yarn dev
+bun install
+bun run dev
 ```
 
 Then open [http://localhost:3000](http://localhost:3000).
@@ -30,13 +30,13 @@ Light and dark themes follow the visitor's system preference.
 
 ## Scripts
 
-| Command               | Description                                                            |
-| --------------------- | ---------------------------------------------------------------------- |
-| `yarn dev`            | Start the dev server (runs in the Workers runtime)                     |
-| `yarn build`          | Production build into `dist/`                                          |
-| `yarn preview`        | Build and serve the production build locally                           |
-| `yarn lint`           | Lint with ESLint                                                       |
-| `yarn typecheck`      | Typecheck with TypeScript                                              |
-| `yarn deploy`         | Build and deploy to Cloudflare Workers                                 |
-| `yarn deploy:version` | Build and upload a new Worker version without promoting it             |
-| `yarn cf-typegen`     | Regenerate `worker-configuration.d.ts` after changing `wrangler.jsonc` |
+| Command                  | Description                                                            |
+| ------------------------ | ---------------------------------------------------------------------- |
+| `bun run dev`            | Start the dev server (runs in the Workers runtime)                     |
+| `bun run build`          | Production build into `dist/`                                          |
+| `bun run preview`        | Build and serve the production build locally                           |
+| `bun run lint`           | Lint with ESLint                                                       |
+| `bun run typecheck`      | Typecheck with TypeScript                                              |
+| `bun run deploy`         | Build and deploy to Cloudflare Workers                                 |
+| `bun run deploy:version` | Build and upload a new Worker version without promoting it             |
+| `bun run cf-typegen`     | Regenerate `worker-configuration.d.ts` after changing `wrangler.jsonc` |
