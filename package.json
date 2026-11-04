@@ -2,34 +2,41 @@
 	"name": "jellify-website",
 	"version": "0.1.0",
 	"private": true,
+	"type": "module",
 	"scripts": {
-		"dev": "next dev --turbopack",
-		"build": "next build",
-		"start": "next start",
-		"lint": "next lint",
-		"deploy:version": "opennextjs-cloudflare build && wrangler versions upload",
-		"deploy": "opennextjs-cloudflare build && opennextjs-cloudflare deploy",
-		"preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
-		"cf-typegen": "wrangler types --env-interface CloudflareEnv ./cloudflare-env.d.ts"
+		"dev": "vite dev",
+		"build": "vite build",
+		"preview": "bun run build && vite preview",
+		"lint": "eslint .",
+		"typecheck": "tsc --noEmit",
+		"deploy:version": "bun run build && wrangler versions upload",
+		"deploy": "bun run build && wrangler deploy",
+		"cf-typegen": "wrangler types"
 	},
 	"dependencies": {
-		"@opennextjs/cloudflare": "^1.3.0",
-		"next": "15.4.6",
-		"react": "19.1.0",
-		"react-dom": "19.1.0",
-		"shadcn": "^3.5.0"
+		"@fontsource-variable/figtree": "^5.3.0",
+		"@tamagui/config": "^3.1.10",
+		"@tanstack/react-router": "^1.170.46",
+		"@tanstack/react-start": "^1.169.4",
+		"react": "^19.2.0",
+		"react-dom": "^19.2.0",
+		"tamagui": "^3.1.10"
 	},
 	"devDependencies": {
-		"@eslint/eslintrc": "^3",
-		"@tailwindcss/postcss": "^4",
-		"@types/node": "^24.9.2",
-		"@types/react": "^19",
-		"@types/react-dom": "^19",
+		"@cloudflare/vite-plugin": "^1.67.0",
+		"@eslint/js": "^9",
+		"@tamagui/vite-plugin": "^3.1.10",
+		"@types/node": "^22",
+		"@types/react": "^19.2.0",
+		"@types/react-dom": "^19.2.0",
+		"@vitejs/plugin-react": "^6.1.2",
 		"eslint": "^9",
-		"eslint-config-next": "15.4.6",
-		"tailwindcss": "^4",
+		"eslint-plugin-react-hooks": "^7.1.1",
+		"globals": "^17.14.0",
 		"typescript": "^5",
-		"wrangler": "^4.45.3"
+		"typescript-eslint": "^8.72.1",
+		"vite": "^8.3.5",
+		"wrangler": "^4.156.1"
 	},
-	"packageManager": "yarn@1.22.22"
+	"packageManager": "bun@1.4.2"
 }
