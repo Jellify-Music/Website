@@ -4,38 +4,27 @@
 	"private": true,
 	"type": "module",
 	"scripts": {
-		"dev": "vite dev",
-		"build": "vite build",
-		"preview": "bun run build && vite preview",
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "bun run build && wrangler dev",
 		"lint": "eslint .",
-		"typecheck": "tsc --noEmit",
+		"typecheck": "astro check",
 		"deploy:version": "bun run build && wrangler versions upload",
-		"deploy": "bun run build && wrangler deploy",
-		"cf-typegen": "wrangler types"
+		"deploy": "bun run build && wrangler deploy"
 	},
 	"dependencies": {
 		"@fontsource-variable/figtree": "^5.3.0",
-		"@tamagui/config": "^3.1.10",
-		"@tanstack/react-router": "^1.170.46",
-		"@tanstack/react-start": "^1.169.4",
-		"react": "^19.2.0",
-		"react-dom": "^19.2.0",
-		"tamagui": "^3.1.10"
+		"astro": "^7.4.5"
 	},
 	"devDependencies": {
-		"@cloudflare/vite-plugin": "^1.67.0",
+		"@astrojs/check": "^0.9.12",
 		"@eslint/js": "^9",
-		"@tamagui/vite-plugin": "^3.1.10",
 		"@types/node": "^22",
-		"@types/react": "^19.2.0",
-		"@types/react-dom": "^19.2.0",
-		"@vitejs/plugin-react": "^6.1.2",
 		"eslint": "^9",
-		"eslint-plugin-react-hooks": "^7.1.1",
+		"eslint-plugin-astro": "^3.2.1",
 		"globals": "^17.14.0",
 		"typescript": "^5",
 		"typescript-eslint": "^8.72.1",
-		"vite": "^8.3.5",
 		"wrangler": "^4.156.1"
 	},
 	"packageManager": "bun@1.4.2"
