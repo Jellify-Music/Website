@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro'
+
+const links = [
+	{
+		label: 'Play Store',
+		href: 'https://play.google.com/store/apps/details?id=com.cosmonautical.jellify',
+	},
+	{
+		label: 'App Store',
+		href: 'https://apps.apple.com/us/app/jellify/id6736884612',
+	},
+	{
+		label: 'GitHub',
+		href: 'https://github.com/Jellify-Music/App',
+	},
+]
+---
+
+<Layout>
+	<main>
+		<div class='logo' role='img' aria-label='Jellify'></div>
+
+		<p>Website Under Construction...</p>
+
+		<nav>
+			{links.map(({ label, href }) => <a href={href}>{label}</a>)}
+		</nav>
+	</main>
+</Layout>
+
+<style>
+	main {
+		min-height: 100vh;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 1rem;
+		padding: 1.5rem;
+	}
+
+	/* The logo is single-color, so mask it and fill with the theme's text color */
+	.logo {
+		width: 180px;
+		height: 180px;
+		background-color: var(--color);
+		mask: url(/jellifyBlack.svg) center / contain no-repeat;
+	}
+
+	p {
+		margin: 0;
+		font-size: 1rem;
+		text-align: center;
+	}
+
+	nav {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 0.5rem;
+	}
+
+	a {
+		color: var(--color);
+		font-size: 1rem;
+		text-decoration: none;
+		border: 2px solid var(--border-color);
+		border-radius: 7px;
+		padding: 0.25rem 0.75rem;
+	}
+
+	a:hover,
+	a:focus-visible {
+		border-color: var(--primary);
+	}
+</style>

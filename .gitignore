@@ -29,5 +29,5 @@ npm-debug.log*
 # cloudflare
 .wrangler/
 
-# tamagui
-.tamagui/
+# astro
+.astro/

@@ -1,0 +1,53 @@
+/**
+ * Mirrors the "purple" preset from the Jellify app's Tamagui config
+ * (App/src/configs/tamagui.config.ts) so the site and app stay visually consistent
+ */
+:root {
+	color-scheme: light dark;
+
+	--background: #ffffff;
+	--background-75: rgba(235, 221, 255, 0.75);
+	--background-50: rgba(235, 221, 255, 0.5);
+	--background-25: rgba(235, 221, 255, 0.25);
+	--border-color: #77748e;
+	--color: #0c0622;
+	--success: rgba(16, 175, 141, 1);
+	--secondary: rgba(0, 58, 159, 1);
+	--primary: #4b0fd6ff;
+	--danger: #b30077;
+	--warning: #a93300ff;
+	--neutral: #77748e;
+	--translucent: rgba(255, 255, 255, 0.75);
+
+	--font-family: 'Figtree Variable', system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--background: rgba(25, 24, 28, 1);
+		--background-75: rgba(25, 24, 28, 0.75);
+		--background-50: rgba(25, 24, 28, 0.5);
+		--background-25: rgba(25, 24, 28, 0.25);
+		--color: #ffffff;
+		--success: rgba(87, 233, 201, 1);
+		--secondary: rgba(75, 125, 215, 1);
+		--primary: #887bff;
+		--danger: #ff066f;
+		--warning: #ff6625;
+		--translucent: rgba(0, 0, 0, 0.5);
+	}
+}
+
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	background-color: var(--background);
+	color: var(--color);
+	font-family: var(--font-family);
+	line-height: 1.5;
+}
