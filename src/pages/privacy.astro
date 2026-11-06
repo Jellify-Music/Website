@@ -1,0 +1,171 @@
+---
+import Layout from '../layouts/Layout.astro'
+
+const effectiveDate = new Date(2026, 10, 5) // November 5, 2026
+
+const formattedEffectiveDate = effectiveDate.toLocaleDateString('en-US', {
+	year: 'numeric',
+	month: 'long',
+	day: 'numeric',
+})
+---
+
+<Layout
+	title='Jellify - Privacy Policy'
+	description='How Jellify handles your data.'
+>
+	<main>
+		<article>
+			<a class='back' href='/'>← Jellify</a>
+
+			<h1>Privacy Policy</h1>
+			<p class='meta'>Effective {formattedEffectiveDate}</p>
+
+			<p>
+				Jellify is a free, open source music player for Jellyfin. It's built by volunteers,
+				it has no accounts of its own, and it isn't in the business of collecting your data.
+				This policy explains how Jellify handles your data - on your device, on this website,
+				and optionally sent to GlitchTip for error reporting if enabled.
+			</p>
+
+			<h2>Your Jellyfin server</h2>
+			<p>
+				Jellify connects directly to the Jellyfin server you choose. Your music library,
+				playlists, favorites, playback history, and lyrics all come from and are sent to
+				<em>your</em> server, not to us. How that data is handled is up to whoever runs the
+				server. If that's you, it stays with you.
+			</p>
+
+			<h2>Your device data</h2>
+			<p>To keep you signed in and remember your preferences, the app stores the following on your device:</p>
+			<ul>
+				<li>Your Jellyfin server address</li>
+				<li>Your Jellyfin account&apos;s username</li>
+				<li>
+					An access token issued by your server. Your password is sent to your server when you
+					sign in and is not stored by the app.
+				</li>
+				<li>Your app settings</li>
+				<li>Cached library information and artwork, so the app loads quickly and without an active internet connection</li>
+				<li>Any music you choose to download for offline playback</li>
+			</ul>
+			<p>This data never leaves your device except to talk to your own Jellyfin server.</p>
+
+			<h2>Error reporting</h2>
+			<p class='meta'><em>Optional, off by default</em></p>
+			<p>
+				Jellify can send crash and error reports to help us find and fix bugs. This uses
+				&nbsp;<a href='https://glitchtip.com'>GlitchTip</a>, an open source error tracking
+				service, and is <strong>turned off by default</strong>. Nothing is sent unless you turn
+				on <em>Send Analytics</em> in Settings, and you can turn it off at any
+				time.
+			</p>
+			<p>When it's on, reports may include:</p>
+			<ul>
+				<li>The error message and where in the app it happened</li>
+				<li>Your device model, operating system version, and app version</li>
+				<li>Which screens you visited and recent app log messages leading up to the error</li>
+				<li>A small sample of performance data</li>
+			</ul>
+			<p>
+				Reports are configured not to include personal information such as your IP address
+				or username. GlitchTip's handling of this data is described in its
+				&nbsp;<a href='https://glitchtip.com/legal/privacy'>privacy policy</a>.
+			</p>
+
+			<h2>Other network requests</h2>
+			<p>
+				The app's <em>About</em> and <em>Settings</em> screens load the list of Jellify's supporters from
+				<code>patrons.jellify.app</code>. This request doesn't include any information about you
+				or your library.
+			</p>
+
+			<h2>No ads, no tracking, no selling</h2>
+			<p>
+				Jellify has no advertising, no third-party analytics, and no tracking across apps or
+				websites. We don't sell or share your data, because we don't have it nor do we care to collect it.
+			</p>
+
+			<h2>This website</h2>
+			<p>
+				jellify.app doesn't use cookies, analytics, or tracking scripts. It's hosted on
+				Cloudflare, which processes basic request information (like your IP address) to serve
+				and protect the site, as described in
+				&nbsp;<a href='https://www.cloudflare.com/privacypolicy/'>Cloudflare's privacy policy</a>.
+			</p>
+
+			<h2>Deleting your data</h2>
+			<p>
+				Signing out of Jellify or uninstalling the app removes everything it stored on your
+				device.
+			</p>
+
+			<h2>Children</h2>
+			<p>
+				Jellify doesn't knowingly collect personal information from anyone, including children
+				under 13.
+			</p>
+
+			<h2>Changes to this policy</h2>
+			<p>
+				If this policy changes, we'll update it here and change the effective date above to {formattedEffectiveDate}.
+				Its full history is public in this website's &nbsp;
+				<a href='https://github.com/Jellify-Music/Website'>GitHub repository</a>.
+			</p>
+		</article>
+	</main>
+</Layout>
+
+<style>
+	main {
+		padding: 3rem 1rem 4rem;
+	}
+
+	article {
+		max-width: 42rem;
+		margin: 0 auto;
+	}
+
+	.back {
+		font-weight: 600;
+		text-decoration: none;
+	}
+
+	h1 {
+		margin: 1.5rem 0 0;
+		font-size: 2.5rem;
+		font-weight: 800;
+		letter-spacing: -0.02em;
+		line-height: 1.1;
+	}
+
+	.meta {
+		margin-top: 0.5rem;
+		color: var(--neutral);
+	}
+
+	h2 {
+		margin: 2.5rem 0 0.5rem;
+		font-size: 1.25rem;
+		font-weight: 700;
+	}
+
+	ul {
+		padding-left: 1.25rem;
+	}
+
+	li + li {
+		margin-top: 0.25rem;
+	}
+
+	a {
+		color: var(--primary);
+	}
+
+	code {
+		font-size: 0.9em;
+		padding: 0.1em 0.3em;
+		border-radius: 4px;
+		background-color: var(--background-50);
+	}
+</style>
