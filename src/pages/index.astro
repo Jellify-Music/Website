@@ -1,18 +1,35 @@
 ---
+import { mdiApple, mdiGithub, mdiGooglePlay, mdiShieldAccount } from '@mdi/js'
 import Layout from '../layouts/Layout.astro'
 
-const links = [
+// `icon` is a Material Design Icons path; `mask` is an SVG in /public for brands MDI dropped
+type Link = { label: string; href: string } & ({ icon: string } | { mask: string })
+
+const links: Link[] = [
 	{
 		label: 'Play Store',
+		icon: mdiGooglePlay,
 		href: 'https://play.google.com/store/apps/details?id=com.cosmonautical.jellify',
 	},
 	{
 		label: 'App Store',
+		icon: mdiApple,
 		href: 'https://apps.apple.com/us/app/jellify/id6736884612',
 	},
 	{
+		label: 'Privacy Policy',
+		icon: mdiShieldAccount,
+		href: '/privacy',
+	},
+	{
 		label: 'GitHub',
+		icon: mdiGithub,
 		href: 'https://github.com/Jellify-Music/App',
+	},
+	{
+		label: 'Discord',
+		href: 'https://discord.gg/yf8fBatktn',
+		mask: '/discord.svg',
 	},
 ]
 ---
@@ -24,7 +41,20 @@ const links = [
 		<p>Website Under Construction...</p>
 
 		<nav>
-			{links.map(({ label, href }) => <a href={href}>{label}</a>)}
+			{
+				links.map((link) => (
+					<a href={link.href}>
+						{'icon' in link ? (
+							<svg class='icon' viewBox='0 0 24 24' aria-hidden='true'>
+								<path d={link.icon} />
+							</svg>
+						) : (
+							<span class='icon' style={`--mask: url(${link.mask})`} aria-hidden='true' />
+						)}
+						{link.label}
+					</a>
+				))
+			}
 		</nav>
 	</main>
 </Layout>
@@ -62,12 +92,27 @@ const links = [
 	}
 
 	a {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.375rem;
 		color: var(--color);
 		font-size: 1rem;
 		text-decoration: none;
 		border: 2px solid var(--border-color);
 		border-radius: 7px;
 		padding: 0.25rem 0.75rem;
+	}
+
+	.icon {
+		width: 1.25em;
+		height: 1.25em;
+		flex-shrink: 0;
+		fill: currentColor;
+	}
+
+	span.icon {
+		background-color: currentColor;
+		mask: var(--mask) center / contain no-repeat;
 	}
 
 	a:hover,

@@ -13,8 +13,9 @@
 		"deploy": "bun run build && wrangler deploy"
 	},
 	"dependencies": {
-		"@fontsource-variable/figtree": "^5.3.0",
-		"astro": "^7.4.5"
+		"@fontsource-variable/figtree": "5.3.0",
+		"@mdi/js": "7.4.47",
+		"astro": "7.4.7"
 	},
 	"devDependencies": {
 		"@astrojs/check": "^0.9.12",

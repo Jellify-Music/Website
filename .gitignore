@@ -31,3 +31,6 @@ npm-debug.log*
 
 # astro
 .astro/
+
+# wrangler local secrets
+.dev.vars*

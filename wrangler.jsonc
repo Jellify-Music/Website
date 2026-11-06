@@ -5,16 +5,25 @@
 {
 	"$schema": "node_modules/wrangler/config-schema.json",
 	"name": "jellify-website",
+	"main": "./worker/index.ts",
 	"compatibility_date": "2026-10-01",
 	"observability": {
 		"enabled": true
 	},
 	/**
-	 * The site is fully static, so the Worker only serves the build output
+	 * The site is static, so the Worker only runs for /api/* and the build output is served directly
 	 * https://developers.cloudflare.com/workers/static-assets/
 	 */
 	"assets": {
 		"directory": "./dist",
-		"not_found_handling": "404-page"
+		"not_found_handling": "404-page",
+		"run_worker_first": ["/api/*"]
+	},
+	/**
+	 * DISCORD_TOKEN is a secret: `wrangler secret put DISCORD_TOKEN` in production, `.dev.vars` locally
+	 */
+	"vars": {
+		"DISCORD_GUILD_ID": "1351285328400351344",
+		"DISCORD_CHANNEL_NAME": "app-general"
 	}
 }
