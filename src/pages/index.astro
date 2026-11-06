@@ -70,12 +70,28 @@ const links: Link[] = [
 		padding: 1.5rem;
 	}
 
-	/* The logo is single-color, so mask it and fill with the theme's text color */
+	/* The logo is single-color, so mask it and cycle the fill between brand colors */
 	.logo {
 		width: 180px;
 		height: 180px;
-		background-color: var(--color);
+		background-color: var(--primary);
 		mask: url(/jellifyBlack.svg) center / contain no-repeat;
+		animation: logo-color 6s ease-in-out infinite alternate;
+	}
+
+	@keyframes logo-color {
+		from {
+			background-color: var(--primary);
+		}
+		to {
+			background-color: var(--success);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.logo {
+			animation: none;
+		}
 	}
 
 	p {
