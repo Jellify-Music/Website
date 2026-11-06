@@ -1,20 +1,7 @@
 ---
+import links from '../config'
 import Layout from '../layouts/Layout.astro'
 
-const links = [
-	{
-		label: 'Play Store',
-		href: 'https://play.google.com/store/apps/details?id=com.cosmonautical.jellify',
-	},
-	{
-		label: 'App Store',
-		href: 'https://apps.apple.com/us/app/jellify/id6736884612',
-	},
-	{
-		label: 'GitHub',
-		href: 'https://github.com/Jellify-Music/App',
-	},
-]
 ---
 
 <Layout>
@@ -24,7 +11,16 @@ const links = [
 		<p>Website Under Construction...</p>
 
 		<nav>
-			{links.map(({ label, href }) => <a href={href}>{label}</a>)}
+			{
+				links.map((link) => (
+					<a href={link.href}>
+						<svg class='icon' viewBox='0 0 24 24' aria-hidden='true'>
+							<path d={link.icon} />
+						</svg>
+						{link.label}
+					</a>
+				))
+			}
 		</nav>
 	</main>
 </Layout>
@@ -40,12 +36,28 @@ const links = [
 		padding: 1.5rem;
 	}
 
-	/* The logo is single-color, so mask it and fill with the theme's text color */
+	/* The logo is single-color, so mask it and cycle the fill between brand colors */
 	.logo {
 		width: 180px;
 		height: 180px;
-		background-color: var(--color);
+		background-color: var(--primary);
 		mask: url(/jellifyBlack.svg) center / contain no-repeat;
+		animation: logo-color 6s ease-in-out infinite alternate;
+	}
+
+	@keyframes logo-color {
+		from {
+			background-color: var(--primary);
+		}
+		to {
+			background-color: var(--success);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.logo {
+			animation: none;
+		}
 	}
 
 	p {
@@ -62,12 +74,27 @@ const links = [
 	}
 
 	a {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.375rem;
 		color: var(--color);
 		font-size: 1rem;
 		text-decoration: none;
 		border: 2px solid var(--border-color);
 		border-radius: 7px;
 		padding: 0.25rem 0.75rem;
+	}
+
+	.icon {
+		width: 1.25em;
+		height: 1.25em;
+		flex-shrink: 0;
+		fill: currentColor;
+	}
+
+	span.icon {
+		background-color: currentColor;
+		mask: var(--mask) center / contain no-repeat;
 	}
 
 	a:hover,
