@@ -1,0 +1,90 @@
+---
+import { render } from 'astro:content'
+import { formatPostDate, getPosts, getPostSnippet, type Post } from '@/config/blog'
+import Layout from '../../layouts/Layout.astro'
+
+export async function getStaticPaths() {
+	const posts = await getPosts()
+	return posts.map((post) => ({ params: { id: post.id }, props: { post } }))
+}
+
+const { post } = Astro.props as { post: Post }
+const { Content } = await render(post)
+---
+
+<Layout title={`Jellify - ${post.data.title}`} description={getPostSnippet(post)}>
+	<main>
+		<article>
+			<a class='back' href='/blog'>← Blog</a>
+
+			<h1>{post.data.title}</h1>
+			<p class='meta'>
+				<time datetime={post.data.date.toISOString()}>{formatPostDate(post.data.date)}</time>
+			</p>
+
+			<Content />
+		</article>
+	</main>
+</Layout>
+
+<style>
+	main {
+		padding: 3rem 1rem 4rem;
+	}
+
+	article {
+		max-width: 42rem;
+		margin: 0 auto;
+	}
+
+	.back {
+		font-weight: 600;
+		text-decoration: none;
+	}
+
+	h1 {
+		margin: 1.5rem 0 0;
+		font-size: 2.5rem;
+		font-weight: 800;
+		letter-spacing: -0.02em;
+		line-height: 1.1;
+	}
+
+	.meta {
+		margin-top: 0.5rem;
+		color: var(--neutral);
+	}
+
+	/* Markdown output isn't scoped, so style it through :global */
+	article :global(h2) {
+		margin: 2.5rem 0 0.5rem;
+		font-size: 1.25rem;
+		font-weight: 700;
+	}
+
+	article :global(ul),
+	article :global(ol) {
+		padding-left: 1.25rem;
+	}
+
+	article :global(li + li) {
+		margin-top: 0.25rem;
+	}
+
+	article :global(a) {
+		color: var(--primary);
+	}
+
+	article :global(img) {
+		max-width: 100%;
+		height: auto;
+		border-radius: 7px;
+	}
+
+	article :global(code) {
+		font-size: 0.9em;
+		padding: 0.1em 0.3em;
+		border-radius: 4px;
+		background-color: var(--background-50);
+	}
+</style>

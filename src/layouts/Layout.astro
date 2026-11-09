@@ -18,6 +18,7 @@ const { title = 'Jellify', description = 'A music app for Jellyfin' } = Astro.pr
 		<title>{title}</title>
 		<meta name='description' content={description} />
 		<link rel='icon' href='/favicon.ico' />
+		<link rel='alternate' type='application/rss+xml' title='Jellify Blog' href='/blog/rss.xml' />
 	</head>
 	<body>
 		<slot />
