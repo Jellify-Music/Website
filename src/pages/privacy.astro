@@ -1,9 +1,8 @@
 ---
-import Layout from '../layouts/Layout.astro'
+import { PRIVACY_POLICY_EFFECTIVE_DATE } from '@/config/policy';
+import Layout from '../layouts/Layout.astro';
 
-const effectiveDate = new Date(2026, 10, 5) // November 5, 2026
-
-const formattedEffectiveDate = effectiveDate.toLocaleDateString('en-US', {
+const formattedEffectiveDate = PRIVACY_POLICY_EFFECTIVE_DATE.toLocaleDateString('en-US', {
 	year: 'numeric',
 	month: 'long',
 	day: 'numeric',
