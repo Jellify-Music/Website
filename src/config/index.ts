@@ -1,5 +1,5 @@
 import type { Link } from '../types'
-import { mdiApple, mdiGithub, mdiGooglePlay, mdiShieldAccount, mdiChat } from '@mdi/js'
+import { mdiApple, mdiGithub, mdiGooglePlay, mdiShieldAccount, mdiChat, mdiPost } from '@mdi/js'
 
 const links: Link[] = [
 	{
@@ -11,6 +11,11 @@ const links: Link[] = [
 		label: 'App Store',
 		icon: mdiApple,
 		href: 'https://apps.apple.com/us/app/jellify/id6736884612',
+	},
+	{
+		label: 'Blog',
+		icon: mdiPost,
+		href: '/blog',
 	},
 	{
 		label: 'Privacy Policy',

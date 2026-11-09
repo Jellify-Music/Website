@@ -4,5 +4,5 @@ import * as MDI from '@mdi/js'
 export type Link = { 
     label: string; 
     href: string 
-    icon: typeof MDI.mdiApple | typeof MDI.mdiGithub | typeof MDI.mdiGooglePlay | typeof MDI.mdiShieldAccount | typeof MDI.mdiChat
+    icon: typeof MDI.mdiApple | typeof MDI.mdiGithub | typeof MDI.mdiGooglePlay | typeof MDI.mdiShieldAccount | typeof MDI.mdiChat | typeof MDI.mdiPost
 }

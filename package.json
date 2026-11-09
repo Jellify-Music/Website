@@ -13,6 +13,7 @@
 		"deploy": "bun run build && wrangler deploy"
 	},
 	"dependencies": {
+		"@astrojs/rss": "4.0.19",
 		"@fontsource-variable/figtree": "5.3.0",
 		"@mdi/js": "7.4.47",
 		"astro": "7.4.7"
