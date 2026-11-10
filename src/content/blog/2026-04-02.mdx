@@ -1,0 +1,59 @@
+---
+title: "Spring '26 Updates"
+date: 2026-04-02
+description: Gapless playback, quicker queuing, track prefetching, a reworked download system, and a round of styling and Android layout fixes.
+---
+
+import Support from '@/content/partials/support.md'
+
+Hi friends!
+
+Violet here, back with some updates to Jellify!
+
+Jellify is hitting its first minor upgrade since launching in December. This comes with some awesome features and fixes, mostly thanks to migrating to [our new player module for React Native](https://github.com/riteshshukla04/react-native-nitro-player).
+
+## Player Updates
+
+Jellify now has some improved player capabilities. For starters and arguably my favorite - Gapless Playback! Tracks now transition smoothly from one into another, with no silence in between.
+
+Secondly, we’ve made it so that queuing tracks doesn’t take nearly as long. We’ve done this by fetching the streaming URLs from Jellyfin just-in-time, right when the player starts its prefetching process.
+
+Which leads me into the player lookahead that’s also been implemented. Jellify now starts fetching tracks ahead of time, keeping the music going when there are brief hiccups in the network.
+
+## Downloads Rework
+
+This new library we created also features built-in download management. We decided to migrate over to this system since it’s far simpler and makes the download enhancements we’d like to do possible.
+
+***This does mean that any existing downloads from 1.0.X are not compatible, but we have a fix for that:***
+
+After upgrading to 1.1, a prompt will appear asking how to handle downloads from previous versions: either download them again in the new format, or delete the old downloads entirely - totally up to you.
+
+If you don’t want to deal with that right away, you can dismiss the prompt and it won’t bother you again. Later, you can go to Settings -> Usage -> Downloaded Tracks and hit the icon in the top right to launch that same prompt and handle those downloads.
+
+While not present in 1.1, a new storage management UI will be coming in a subsequent update that will give more controls over your downloads and downloads in progress.
+
+## Styling tweaks, UI enhancements
+
+A lot of small tweaks have been added to the UI to make the experience a little smoother. I recently (and finally) got a new Android device and I’ve been able to fix a lot of layout issues that I’ve noticed occur on it - especially when using the 3-button navigation system.
+
+The alphabetical selector in the library was tuned to track your finger better, a progress indicator will display to show the download progress of a track, and gone are the bright colors in the library and settings that were especially jarring in dark mode.
+
+## What’s Up Next?
+
+Like I mentioned previously, a better storage management UI is in order I believe. We have the proper backend support available with our new module, we just need to wire everything up and make it work.
+
+Arguably, the biggest thing that our new player module makes easier is Android Auto. With the old player setup, we were running into a lot of issues where the phone audio was separate from the car audio; two different tracks could be playing at the same time. This new module keeps the phone and the car in sync, and audio will only come from the car when connected.
+
+Between that and my new (to me) Pixel 9a, we are in a far better position to build up Android Auto. That and CarPlay are going to be a primary area of focus here leading into summertime. Some improvements I would like to make to CarPlay would be including adding playlist support, additional player controls, search, and adding images to the UI.
+
+## Support the Project!
+
+<Support />
+
+## TL;DR
+
+New player features (gapless playback, quicker queuing, track prefetching), styling fixes, QoL improvements, Android layout fixes.
+
+NOTE: 1.1 brings a new download management system, with downloads from 1.0.X being incompatible. You will be asked how to handle these “legacy” downloads - either by deleting them or downloading them in the new format.
+
+This prompt can be dismissed and relaunched from the Settings -> Usage -> Downloaded Tracks menu at anytime if legacy downloads are detected.

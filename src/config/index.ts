@@ -1,16 +1,30 @@
 import type { Link } from '../types'
-import { mdiApple, mdiGithub, mdiGooglePlay, mdiShieldAccount, mdiChat, mdiPost } from '@mdi/js'
+import { mdiApple, mdiGithub, mdiGooglePlay, mdiShieldAccount, mdiChat, mdiPost, mdiAirplane } from '@mdi/js'
+
+export const GPLAY_LINK = 'https://play.google.com/store/apps/details?id=com.cosmonautical.jellify'
+
+export const TESTFLIGHT_LINK = 'https://testflight.apple.com/join/etVSc7ZQ'
+export const APP_STORE_LINK = 'https://apps.apple.com/us/app/jellify/id6736884612'
+
+export const GITHUB_LINK = 'https://github.com/Jellify-Music/App'
+
+export const DISCORD_LINK = 'https://discord.gg/yf8fBatktn'
 
 const links: Link[] = [
 	{
 		label: 'Play Store',
 		icon: mdiGooglePlay,
-		href: 'https://play.google.com/store/apps/details?id=com.cosmonautical.jellify',
+		href: GPLAY_LINK,
 	},
 	{
 		label: 'App Store',
 		icon: mdiApple,
-		href: 'https://apps.apple.com/us/app/jellify/id6736884612',
+		href: APP_STORE_LINK,
+	},
+	{
+		label: 'TestFlight',
+		icon: mdiAirplane,
+		href: TESTFLIGHT_LINK,
 	},
 	{
 		label: 'Blog',
@@ -25,12 +39,12 @@ const links: Link[] = [
 	{
 		label: 'GitHub',
 		icon: mdiGithub,
-		href: 'https://github.com/Jellify-Music/App',
+		href: GITHUB_LINK,
 	},
 	{
 		label: 'Discord',
 		icon: mdiChat,
-		href: 'https://discord.gg/yf8fBatktn',
+		href: DISCORD_LINK,
 	},
 ]
 
