@@ -23,7 +23,7 @@ export function getPostSnippet(post: Post): string {
 	const paragraph = (post.body ?? '')
 		.split(/\n\s*\n/)
 		.map((block) => block.trim())
-		.find((block) => block && !block.startsWith('#'))
+		.find((block) => block && !block.startsWith('#') && !block.startsWith('import '))
 
 	// Strip links and emphasis so the snippet reads as plain text
 	return (paragraph ?? '')
