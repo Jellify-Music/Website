@@ -28,7 +28,7 @@
 		"globals": "^17.14.0",
 		"typescript": "^5",
 		"typescript-eslint": "^8.72.1",
-		"wrangler": "^4.156.1"
+		"wrangler": "^4.158.0"
 	},
 	"packageManager": "bun@1.4.2"
 }
