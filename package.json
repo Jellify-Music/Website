@@ -23,7 +23,7 @@
 		"@astrojs/check": "0.9.12",
 		"@eslint/js": "9.39.5",
 		"@types/node": "26.6.6",
-		"eslint": "9.39.5",
+		"eslint": "10.14.0",
 		"eslint-plugin-astro": "3.2.1",
 		"globals": "17.14.0",
 		"typescript": "5.9.3",
