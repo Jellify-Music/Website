@@ -26,7 +26,7 @@
 		"eslint": "9.39.5",
 		"eslint-plugin-astro": "3.2.1",
 		"globals": "17.14.0",
-		"typescript": "5.9.3",
+		"typescript": "7.0.2",
 		"typescript-eslint": "8.72.1",
 		"wrangler": "4.158.0"
 	},
