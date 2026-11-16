@@ -20,7 +20,7 @@ const background = Buffer.from(`
 	<rect width="100%" height="100%" fill="#19181c" />
 	<rect width="100%" height="100%" fill="url(#glow)" />
 	<g font-family="Figtree, Helvetica Neue, Helvetica, Arial, sans-serif" fill="#ffffff">
-		<text x="80" y="200" font-size="64" font-weight="800">Jellify</text>
+		<text x="180" y="172" font-size="64" font-weight="800">Jellify</text>
 		<text x="80" y="300" font-size="52" font-weight="700">A music player</text>
 		<text x="80" y="365" font-size="52" font-weight="700">for <tspan fill="#887bff">Jellyfin</tspan></text>
 		<text x="80" y="450" font-size="28" fill="#c9c6d6">Free and open source for iOS and Android</text>
@@ -28,7 +28,7 @@ const background = Buffer.from(`
 	</g>
 </svg>`)
 
-const logo = await sharp('public/jellifyGradient.svg', { density: 300 }).resize(96, 96).png().toBuffer()
+const logo = await sharp('public/jellifyGradient.svg', { density: 300 }).resize(84, 84).png().toBuffer()
 
 // Round the screenshot's corners so it reads as a phone
 const phoneWidth = 300
@@ -50,7 +50,8 @@ const croppedPhone = await sharp(phone)
 
 await sharp(background)
 	.composite([
-		{ input: logo, left: 80, top: 60 },
+		// Sits beside the "Jellify" wordmark, centered on its cap height
+		{ input: logo, left: 80, top: 107 },
 		{ input: croppedPhone, left: WIDTH - phoneWidth - 110, top: phoneTop },
 	])
 	.png({ compressionLevel: 9 })
