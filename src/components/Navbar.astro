@@ -1,0 +1,102 @@
+---
+import { navLinks } from '@/config'
+import Icon from './Icon.astro'
+---
+
+<header>
+	<nav aria-label='Main'>
+		<a class='brand' href='/'>
+			<img class='mark' src='/jellifyGradient.svg' alt='' width='48' height='48' />
+			Jellify
+		</a>
+
+		<ul>
+			{
+				navLinks.map((link) => (
+					<li>
+						<a href={link.href}>
+							<Icon path={link.icon} />
+							<span>{link.label}</span>
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</nav>
+</header>
+
+<style>
+	header {
+		position: sticky;
+		top: 0;
+		z-index: 10;
+		background-color: var(--background);
+		border-bottom: 1px solid var(--border-color);
+	}
+
+	nav {
+		max-width: 72rem;
+		margin: 0 auto;
+		padding: 0.5rem 1rem;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+	}
+
+	a {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.375rem;
+		color: var(--color);
+		text-decoration: none;
+		border-radius: 7px;
+	}
+
+	.brand {
+		font-size: 1.5rem;
+		font-weight: 600;
+		letter-spacing: 0.025em;
+		gap: 0.5rem;
+	}
+
+	/* Same teal-to-purple gradient as the app icon */
+	.mark {
+		width: 3rem;
+		height: 3rem;
+	}
+
+	ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		gap: 0.25rem;
+	}
+
+	ul a {
+		font-weight: 600;
+		padding: 0.375rem 0.625rem;
+	}
+
+	ul a:hover,
+	ul a:focus-visible {
+		color: var(--primary);
+		background-color: var(--background-50);
+	}
+
+	/* Text-only links on phones so all four fit beside the logo */
+	@media (max-width: 35rem) {
+		.brand {
+			font-size: 0;
+		}
+
+		ul a {
+			padding: 0.375rem 0.5rem;
+		}
+
+		ul :global(.icon) {
+			display: none;
+		}
+	}
+</style>

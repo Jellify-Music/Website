@@ -1,0 +1,175 @@
+---
+import { mdiArrowRight } from '@mdi/js'
+import Icon from '@/components/Icon.astro'
+import { discordLink, issuesLink } from '@/config'
+import Layout from '../layouts/Layout.astro'
+
+// Shown under the join button so people can type it in on another device
+const inviteUrl = discordLink.href.replace(/^https:\/\//, '')
+---
+
+<Layout title='Jellify - Contact' description='Get in touch with the Jellify team.'>
+	<main>
+		<header>
+			<h1>Get in touch</h1>
+			<p class='lede'>
+				Jellify is built by volunteers, and the best place to reach us is our Discord server.
+			</p>
+		</header>
+
+		<section class='discord' aria-labelledby='discord-heading'>
+			<Icon path={discordLink.icon} />
+			<h2 id='discord-heading'>Join us on {discordLink.label}</h2>
+			<p>{discordLink.description}</p>
+			<a class='join' href={discordLink.href}>
+				Join the server
+				<Icon path={mdiArrowRight} />
+			</a>
+			<p class='invite'>
+				Invite link: <code>{inviteUrl}</code>
+			</p>
+		</section>
+
+		<section class='other' aria-labelledby='other-heading'>
+			<h2 id='other-heading'>Bugs and feature requests</h2>
+			<a href={issuesLink.href}>
+				<Icon path={issuesLink.icon} />
+				<span>
+					<strong>{issuesLink.label}</strong>
+					<small>{issuesLink.description}</small>
+				</span>
+			</a>
+		</section>
+	</main>
+</Layout>
+
+<style>
+	main {
+		max-width: 42rem;
+		margin: 0 auto;
+		padding: 3rem 1rem 4rem;
+	}
+
+	h1 {
+		margin: 0;
+		font-size: 2.5rem;
+		font-weight: 800;
+		letter-spacing: -0.02em;
+		line-height: 1.1;
+	}
+
+	.lede {
+		margin: 0.75rem 0 0;
+		font-size: 1.125rem;
+		color: var(--neutral);
+	}
+
+	h2 {
+		margin: 0;
+		font-size: 1.25rem;
+		font-weight: 700;
+	}
+
+	/* Discord */
+
+	.discord {
+		margin-top: 2.5rem;
+		padding: 2rem 1.5rem;
+		border-radius: 14px;
+		text-align: center;
+	}
+
+	.discord > :global(.icon) {
+		width: 3rem;
+		height: 3rem;
+		color: var(--primary);
+	}
+
+	.discord h2 {
+		margin-top: 0.5rem;
+		font-size: 1.5rem;
+	}
+
+	.discord p {
+		margin: 0.5rem auto 0;
+		max-width: 28rem;
+		color: var(--neutral);
+	}
+
+	.join {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin-top: 1.5rem;
+		padding: 0.75rem 1.5rem;
+		border-radius: 999px;
+		background-color: var(--primary);
+		color: var(--background);
+		font-weight: 700;
+		text-decoration: none;
+	}
+
+	.join:hover,
+	.join:focus-visible {
+		box-shadow: 0 0px 24px -8px var(--border-color);
+	}
+
+	.discord .invite {
+		margin-top: 1rem;
+		font-size: 1rem;
+	}
+
+	code {
+		font-size: 0.9em;
+		padding: 0.1em 0.3em;
+		border-radius: 4px;
+		background-color: var(--background-50);
+		color: var(--color);
+	}
+
+	/* Other channels */
+
+	.other {
+		margin-top: 3rem;
+	}
+
+	.other a {
+		margin-top: 1rem;
+		display: flex;
+		align-items: flex-start;
+		gap: 1rem;
+		color: var(--color);
+		text-decoration: none;
+		border: 2px solid var(--border-color);
+		border-radius: 14px;
+		padding: 1rem 1.25rem;
+	}
+
+	.other a:hover,
+	.other a:focus-visible {
+		border-color: var(--primary);
+	}
+
+	.other a :global(.icon) {
+		width: 1.5rem;
+		height: 1.5rem;
+		margin-top: 0.125rem;
+		color: var(--primary);
+	}
+
+	.other span {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.other small {
+		font-size: 0.9375rem;
+		color: var(--neutral);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.join {
+			transition: none;
+		}
+	}
+</style>

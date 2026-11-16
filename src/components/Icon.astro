@@ -1,0 +1,21 @@
+---
+interface Props {
+	path: string
+	class?: string
+}
+
+const { path, class: className } = Astro.props
+---
+
+<svg class:list={['icon', className]} viewBox='0 0 24 24' aria-hidden='true'>
+	<path d={path} />
+</svg>
+
+<style>
+	.icon {
+		width: 1.25em;
+		height: 1.25em;
+		flex-shrink: 0;
+		fill: currentColor;
+	}
+</style>
