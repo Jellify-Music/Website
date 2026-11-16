@@ -50,3 +50,27 @@ export const openSourceProjects: OpenSourceProject[] = [
 		],
 	},
 ]
+
+const starFormat = new Intl.NumberFormat('en-US', { notation: 'compact', maximumFractionDigits: 1 })
+
+// Fetched once at build time. A token is optional but avoids the 60 requests/hour unauthenticated limit
+export async function getStarCount(repo: string): Promise<string | undefined> {
+	const slug = new URL(repo).pathname.slice(1)
+	const token = import.meta.env.GITHUB_TOKEN
+
+	try {
+		const response = await fetch(`https://api.github.com/repos/${slug}`, {
+			headers: {
+				Accept: 'application/vnd.github+json',
+				...(token && { Authorization: `Bearer ${token}` }),
+			},
+		})
+		if (!response.ok) return undefined
+
+		const { stargazers_count } = (await response.json()) as { stargazers_count: number }
+		return starFormat.format(stargazers_count)
+	} catch {
+		// Leave the count off rather than failing the build
+		return undefined
+	}
+}

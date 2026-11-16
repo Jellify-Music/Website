@@ -1,8 +1,12 @@
 ---
-import { mdiGithub, mdiNpm, mdiScaleBalance, mdiWeb } from '@mdi/js'
+import { mdiGithub, mdiNpm, mdiScaleBalance, mdiStar, mdiWeb } from '@mdi/js'
 import Icon from '@/components/Icon.astro'
-import { openSourceProjects } from '@/config/openSource'
+import { getStarCount, openSourceProjects } from '@/config/openSource'
 import Layout from '../layouts/Layout.astro'
+
+const projects = await Promise.all(
+	openSourceProjects.map(async (project) => ({ ...project, stars: await getStarCount(project.repo) })),
+)
 ---
 
 <Layout title='Jellify - Open Source' description='The open source projects that make up Jellify.'>
@@ -16,7 +20,7 @@ import Layout from '../layouts/Layout.astro'
 		</header>
 
 		{
-			openSourceProjects.map((project) => (
+			projects.map((project) => (
 				<section id={project.id} aria-labelledby={`${project.id}-heading`}>
 					<div class='title'>
 						<Icon path={project.icon} />
@@ -38,9 +42,15 @@ import Layout from '../layouts/Layout.astro'
 						)}
 
 						<li>
-							<a href={project.repo}>
+							<a href={project.repo} aria-label={project.stars && `GitHub, ${project.stars} stars`}>
 								<Icon path={mdiGithub} />
 								GitHub
+								{project.stars && (
+									<span class='stars'>
+										<Icon path={mdiStar} />
+										{project.stars}
+									</span>
+								)}
 							</a>
 						</li>
 						{project.npm && (
@@ -155,6 +165,16 @@ import Layout from '../layouts/Layout.astro'
 
 	ul a :global(.icon) {
 		color: var(--primary);
+	}
+
+	.stars {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.125rem;
+		margin-left: 0.25rem;
+		padding-left: 0.625rem;
+		border-left: 1px solid var(--border-color);
+		color: var(--neutral);
 	}
 
 	code {
