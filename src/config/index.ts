@@ -1,5 +1,5 @@
 import type { Link } from '../types'
-import { mdiApple, mdiGithub, mdiGooglePlay, mdiShieldAccount, mdiChat, mdiPost, mdiAirplane, mdiPackageDown, mdiAutorenew, mdiCellphoneArrowDown } from '@mdi/js'
+import { mdiApple, mdiGithub, mdiGooglePlay, mdiShieldAccount, mdiChat, mdiEmailOutline, mdiBugOutline, mdiPost, mdiAirplane, mdiPackageDown, mdiAutorenew, mdiCellphoneArrowDown } from '@mdi/js'
 
 export const GPLAY_LINK = 'https://play.google.com/store/apps/details?id=com.cosmonautical.jellify'
 
@@ -23,16 +23,30 @@ export const navLinks: Link[] = [
 		href: '/privacy',
 	},
 	{
+		label: 'Contact',
+		icon: mdiEmailOutline,
+		href: '/contact',
+	},
+	{
 		label: 'GitHub',
 		icon: mdiGithub,
 		href: GITHUB_LINK,
 	},
-	{
-		label: 'Discord',
-		icon: mdiChat,
-		href: DISCORD_LINK,
-	},
 ]
+
+export const discordLink = {
+	label: 'Discord',
+	icon: mdiChat,
+	href: DISCORD_LINK,
+	description: 'Ask questions, get help setting up, share feedback, and hear about new releases first.',
+} satisfies Link
+
+export const issuesLink = {
+	label: 'GitHub Issues',
+	icon: mdiBugOutline,
+	href: `${GITHUB_LINK}/issues`,
+	description: 'Found a bug or have a feature idea? Open an issue so it can be tracked.',
+} satisfies Link
 
 export const storeLinks = {
 	ios: {

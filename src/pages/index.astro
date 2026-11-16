@@ -13,7 +13,6 @@ import {
 import homeScreenshot from '@/assets/screenshots/home.png'
 import playerScreenshot from '@/assets/screenshots/player.png'
 import Icon from '@/components/Icon.astro'
-import Navbar from '@/components/Navbar.astro'
 import { alternativeDownloads, GITHUB_LINK, navLinks, storeLinks } from '@/config'
 import { formatPostDate, getPosts } from '@/config/blog'
 import Layout from '../layouts/Layout.astro'
@@ -55,8 +54,6 @@ const features = [
 ---
 
 <Layout title='Jellify - A music player for Jellyfin'>
-	<Navbar />
-
 	<main>
 		<section class='hero'>
 			<div class='hero-copy'>
@@ -287,7 +284,6 @@ const features = [
 
 	.download:hover,
 	.download:focus-visible {
-		transform: translateY(-2px);
 		box-shadow: 0 8px 24px -8px var(--primary);
 	}
 

@@ -6,7 +6,7 @@ import Icon from './Icon.astro'
 <header>
 	<nav aria-label='Main'>
 		<a class='brand' href='/'>
-			<span class='mark' aria-hidden='true'></span>
+			<img class='mark' src='/jellifyGradient.svg' alt='' width='48' height='48' />
 			Jellify
 		</a>
 
@@ -60,12 +60,10 @@ import Icon from './Icon.astro'
 		gap: 0.5rem;
 	}
 
-	/* Single-color logo, masked so it takes the theme's primary color */
+	/* Same teal-to-purple gradient as the app icon */
 	.mark {
 		width: 3rem;
 		height: 3rem;
-		background-color: var(--primary);
-		mask: url(/jellifyBlack.svg) center / contain no-repeat;
 	}
 
 	ul {

@@ -1,6 +1,7 @@
 ---
 import '@fontsource-variable/figtree'
 import '../styles/global.css'
+import Navbar from '@/components/Navbar.astro'
 
 interface Props {
 	title?: string
@@ -21,6 +22,7 @@ const { title = 'Jellify', description = 'A music app for Jellyfin' } = Astro.pr
 		<link rel='alternate' type='application/rss+xml' title='Jellify Blog' href='/blog/rss.xml' />
 	</head>
 	<body>
+		<Navbar />
 		<slot />
 	</body>
 </html>
