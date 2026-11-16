@@ -6,7 +6,7 @@ Built with [Astro](https://astro.build) as a static site, and served from [Cloud
 
 ## Getting Started
 
-Use [Bun](https://bun.sh) (the version in `package.json`'s `packageManager`) and the Node version in `.nvmrc`. Astro and Wrangler run on Node.
+Use [Bun](https://bun.sh) (the version in `package.json`'s `packageManager`). Everything runs on Bun's runtime, including Astro and Wrangler, so Node isn't needed.
 
 ```bash
 nvm use
