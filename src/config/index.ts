@@ -1,5 +1,5 @@
 import type { Link } from '../types'
-import { mdiApple, mdiGithub, mdiGooglePlay, mdiShieldAccount, mdiChat, mdiEmailOutline, mdiBugOutline, mdiPost, mdiAirplane, mdiPackageDown, mdiAutorenew, mdiCellphoneArrowDown } from '@mdi/js'
+import { mdiApple, mdiGooglePlay, mdiShieldAccount, mdiChat, mdiEmailOutline, mdiBugOutline, mdiPost, mdiAirplane, mdiPackageDown, mdiAutorenew, mdiCellphoneArrowDown, mdiCodeTags } from '@mdi/js'
 
 export const GPLAY_LINK = 'https://play.google.com/store/apps/details?id=com.cosmonautical.jellify'
 
@@ -28,9 +28,9 @@ export const navLinks: Link[] = [
 		href: '/contact',
 	},
 	{
-		label: 'GitHub',
-		icon: mdiGithub,
-		href: GITHUB_LINK,
+		label: 'Source',
+		icon: mdiCodeTags,
+		href: '/open-source',
 	},
 ]
 
