@@ -6,9 +6,17 @@ import Navbar from '@/components/Navbar.astro'
 interface Props {
 	title?: string
 	description?: string
+	// Set on blog posts so link previews and search engines treat the page as an article
+	article?: { publishedTime: Date }
+	// Structured data (https://schema.org) rendered as JSON-LD
+	schema?: Record<string, unknown>
 }
 
-const { title = 'Jellify', description = 'A music app for Jellyfin' } = Astro.props
+const { title = 'Jellify', description = 'A music app for Jellyfin', article, schema } = Astro.props
+
+// Pages build to /blog.html but are served at /blog, so drop the extension and any trailing slash
+const canonical = new URL(Astro.url.pathname.replace(/(\/index)?\.html$|\/$/, '') || '/', Astro.site)
+const image = new URL('/og.png', Astro.site)
 ---
 
 <!doctype html>
@@ -18,8 +26,29 @@ const { title = 'Jellify', description = 'A music app for Jellyfin' } = Astro.pr
 		<meta name='viewport' content='width=device-width, initial-scale=1' />
 		<title>{title}</title>
 		<meta name='description' content={description} />
-		<link rel='icon' href='/favicon.ico' />
+		<link rel='canonical' href={canonical} />
+
+		<meta property='og:site_name' content='Jellify' />
+		<meta property='og:type' content={article ? 'article' : 'website'} />
+		<meta property='og:title' content={title} />
+		<meta property='og:description' content={description} />
+		<meta property='og:url' content={canonical} />
+		<meta property='og:image' content={image} />
+		<meta property='og:image:width' content='1200' />
+		<meta property='og:image:height' content='630' />
+		<meta property='og:image:alt' content='Jellify, a music player for Jellyfin' />
+		{article && <meta property='article:published_time' content={article.publishedTime.toISOString()} />}
+		<meta name='twitter:card' content='summary_large_image' />
+
+		<link rel='icon' href='/favicon.ico' sizes='32x32' />
+		<link rel='icon' href='/jellifyGradient.svg' type='image/svg+xml' />
+		<link rel='apple-touch-icon' href='/apple-touch-icon.png' />
+		<meta name='theme-color' content='#ffffff' media='(prefers-color-scheme: light)' />
+		<meta name='theme-color' content='#19181c' media='(prefers-color-scheme: dark)' />
+
 		<link rel='alternate' type='application/rss+xml' title='Jellify Blog' href='/blog/rss.xml' />
+		<link rel='sitemap' href='/sitemap-index.xml' />
+		{schema && <script type='application/ld+json' set:html={JSON.stringify({ '@context': 'https://schema.org', ...schema })} />}
 	</head>
 	<body>
 		<Navbar />

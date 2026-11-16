@@ -53,7 +53,22 @@ const features = [
 ]
 ---
 
-<Layout title='Jellify - A music player for Jellyfin'>
+<Layout
+	title='Jellify - A music player for Jellyfin'
+	description='Jellify is a free, open source music player for Jellyfin on iOS and Android, with CarPlay, Android Auto, Google Cast, and offline playback. No ads, no tracking.'
+	schema={{
+		'@type': 'MobileApplication',
+		name: 'Jellify',
+		url: Astro.site?.href,
+		image: new URL('/og.png', Astro.site).href,
+		description: 'A free, open source music player for Jellyfin on iOS and Android.',
+		applicationCategory: 'MultimediaApplication',
+		operatingSystem: 'iOS, Android',
+		offers: { '@type': 'Offer', price: 0, priceCurrency: 'USD' },
+		downloadUrl: [storeLinks.ios.href, storeLinks.android.href],
+		sameAs: [GITHUB_LINK, storeLinks.ios.href, storeLinks.android.href],
+	}}
+>
 	<main>
 		<section class='hero'>
 			<div class='hero-copy'>
