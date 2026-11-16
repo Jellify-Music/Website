@@ -1,5 +1,5 @@
 import type { Link } from '../types'
-import { mdiApple, mdiGithub, mdiGooglePlay, mdiShieldAccount, mdiChat, mdiPost, mdiAirplane } from '@mdi/js'
+import { mdiApple, mdiGithub, mdiGooglePlay, mdiShieldAccount, mdiChat, mdiPost, mdiAirplane, mdiPackageDown, mdiAutorenew, mdiCellphoneArrowDown } from '@mdi/js'
 
 export const GPLAY_LINK = 'https://play.google.com/store/apps/details?id=com.cosmonautical.jellify'
 
@@ -7,32 +7,18 @@ export const TESTFLIGHT_LINK = 'https://testflight.apple.com/join/etVSc7ZQ'
 export const APP_STORE_LINK = 'https://apps.apple.com/us/app/jellify/id6736884612'
 
 export const GITHUB_LINK = 'https://github.com/Jellify-Music/App'
+export const RELEASES_LINK = `${GITHUB_LINK}/releases/latest`
 
 export const DISCORD_LINK = 'https://discord.gg/yf8fBatktn'
 
-const links: Link[] = [
-	{
-		label: 'Play Store',
-		icon: mdiGooglePlay,
-		href: GPLAY_LINK,
-	},
-	{
-		label: 'App Store',
-		icon: mdiApple,
-		href: APP_STORE_LINK,
-	},
-	{
-		label: 'TestFlight',
-		icon: mdiAirplane,
-		href: TESTFLIGHT_LINK,
-	},
+export const navLinks: Link[] = [
 	{
 		label: 'Blog',
 		icon: mdiPost,
 		href: '/blog',
 	},
 	{
-		label: 'Privacy Policy',
+		label: 'Privacy',
 		icon: mdiShieldAccount,
 		href: '/privacy',
 	},
@@ -48,5 +34,44 @@ const links: Link[] = [
 	},
 ]
 
-export default links
+export const storeLinks = {
+	ios: {
+		label: 'App Store',
+		icon: mdiApple,
+		href: APP_STORE_LINK,
+		description: 'iPhone and CarPlay',
+	},
+	android: {
+		label: 'Google Play',
+		icon: mdiGooglePlay,
+		href: GPLAY_LINK,
+		description: 'Android phones and Android Auto',
+	},
+} satisfies Record<string, Link>
 
+export const alternativeDownloads: Link[] = [
+	{
+		label: 'TestFlight',
+		icon: mdiAirplane,
+		href: TESTFLIGHT_LINK,
+		description: 'Try new features on iOS before they hit the App Store.',
+	},
+	{
+		label: 'GitHub Releases',
+		icon: mdiPackageDown,
+		href: RELEASES_LINK,
+		description: 'Grab the APK or IPA for the latest release directly.',
+	},
+	{
+		label: 'Obtainium',
+		icon: mdiAutorenew,
+		href: 'https://github.com/ImranR98/Obtainium',
+		description: "Add Jellify's GitHub repo as a source to pick up each Android release automatically.",
+	},
+	{
+		label: 'AltStore',
+		icon: mdiCellphoneArrowDown,
+		href: 'https://altstore.io',
+		description: 'Sideload the IPA from GitHub Releases with AltStore or your favorite utility.',
+	},
+]

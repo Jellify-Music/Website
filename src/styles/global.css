@@ -51,3 +51,13 @@ body {
 	font-family: var(--font-family);
 	line-height: 1.5;
 }
+
+html {
+	scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+	html {
+		scroll-behavior: auto;
+	}
+}
